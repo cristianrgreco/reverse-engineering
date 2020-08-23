@@ -38,10 +38,16 @@ Note that there are different registers depending on the size.
 `ax` = 16-bit, (short).
 `ah`/`al` = 8-bit, (char).
 
-**rax** = return values.
-**rsp** = stack pointer (points to the top of the stack).
-**rbp** = base pointer (sometimes used to store the old value of the stack pointer).
+#### rax 
+Return values.
 
+#### rsp
+Stack pointer (points to the top of the stack).
+
+#### rbp
+Base pointer (sometimes used to store the old value of the stack pointer).
+
+#### Others
 Other registers such as `rdx`, `rsi`, `rdi`, `r{8..15}` are usually used asscratch 
 registers, though this depends as certain instructions, for example `movsb` takes the
 source address from `esi` and the destination from `edi`, copies one byte and changes
@@ -52,7 +58,7 @@ have a specific purpose for certain instructions.
 
 Overview of the different CPU operations (Intel x86).
 
-#### PUSH
+#### push
 
 Write a value to the stack:
 
@@ -60,7 +66,7 @@ Write a value to the stack:
 push 0x1
 ```
 
-#### POP
+#### pop
 
 Restore the top value on the stack into a register:
 
@@ -69,7 +75,7 @@ push 0x1
 pop eax ; eax = 0x1
 ```
 
-#### MOV
+#### mov
 
 Can be interpreted as as assignment statement:
 
@@ -79,11 +85,11 @@ mov rax, qword [objc_release_1000]
 
 Will assign the result of `objc_release_1000` to `rax`.
 
-#### CMP
+#### cmp
 
 Subtracts the two operands, setting the ZF when the difference is zero.
 
-#### TEST
+#### test
 
 Performs a bitwise `AND` on the two operands, setting the ZF when the reult is zero.
 
@@ -93,7 +99,7 @@ Performs a bitwise `AND` on the two operands, setting the ZF when the reult is z
 1 & 1 ; ZF=1
 ```
 
-#### XOR
+#### xor
 
 Exclusive or, "are A and B not equal". 
 Why not say that one must be true? Because for the result to be one, one of the operands must be true.
